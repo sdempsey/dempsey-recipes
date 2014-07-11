@@ -4,6 +4,3 @@
 [submodule "vital-blank-wp-theme"]
 	path = content/themes/vital-blank-wp-theme
 	url = git://github.com/VitalDevTeam/vital-blank-wp-theme
-[submodule "advanced-custom-fields"]
-	path = content/plugins/advanced-custom-fields
-	url = git://github.com/elliotcondon/acf/
