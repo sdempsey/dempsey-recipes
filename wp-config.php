@@ -1,20 +1,33 @@
 <?php
 
 /** Database settings */
-if ( file_exists( dirname( __FILE__ ) . '/wp-config-local.php' ) ) {
-    define( 'WP_LOCAL_DEV', true );
-    include( dirname( __FILE__ ) . '/wp-config-local.php' );
+if ($_SERVER["HTTP_HOST"] === 'dev.madebyvital.com') {
+    define('WP_ENV', 'development');
 } else {
-    define( 'WP_LOCAL_DEV', false );
-    define( 'DB_NAME', 'DB_NAME' );
-    define( 'DB_USER', 'DB_USER' );
-    define( 'DB_PASSWORD', 'DB_PASSWORD' );
-    define( 'DB_HOST', 'localhost' );
+    define('WP_ENV', 'production');
 }
 
-/** Custom content directory */
-define( 'WP_CONTENT_DIR', dirname( __FILE__ ) . '/content' );
-define( 'WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/content' );
+if (WP_ENV == 'development') {
+    define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . '/wordpress');
+    define('WP_HOME', 'http://' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT']);
+    define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . '/wp-content');
+    define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . '/wp-content');
+
+    define('DB_NAME', 'dev_db_name');
+    define('DB_USER', 'dev_db_user');
+    define('DB_PASSWORD', 'dev_db_password');
+    define('DB_HOST', 'localhost');
+} else {
+    define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/wordpress');
+    define('WP_HOME', 'http://' . $_SERVER['SERVER_NAME']);
+    define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . '/wp-content');
+    define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp-content');
+
+    define('DB_NAME', 'prod_db_name');
+    define('DB_USER', 'prod_db_user');
+    define('DB_PASSWORD', 'prod_db_password');
+    define('DB_HOST', 'mysql.efeqdev.com');
+}
 
 /** Database charset and collate type. */
 define('DB_CHARSET', 'utf8');
