@@ -1,6 +1,17 @@
-/shared
-/local-config.php
-/sql-dump-*.sql
-/db-sync
-/content/upgrade/
+# Ignore files that don't need tracking
 .DS_Store
+.error_log
+index.php
+
+# Ignore everything in wp-content except plugins and themes
+wp-content/*
+!wp-content/plugins
+!wp-content/themes
+
+# Ignore all plugins except the ones you specify
+wp-content/plugins/*
+# !wp-content/plugins/custom-post-type-boilerplate
+
+# Ignore all themes except the ones you specify
+wp-content/themes/*
+# !wp-content/themes/my-theme
