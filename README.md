@@ -4,6 +4,5 @@ The base layout of a WordPress Git repository.
 
 ## Layout
 * WordPress added as a Git submodule in `/wp/`
-* [Vital Blank WP Theme](https://github.com/VitalDevTeam/nucleus) added as a Git submodule in `/content/themes/`
-* Content directory moved outside of WordPress root to `/content/`
+* Content directory moved outside of WordPress root
 * Configuration files moved outside of WordPress root and ready for both local and remote environments
