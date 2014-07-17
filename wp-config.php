@@ -49,8 +49,14 @@ $table_prefix  = 'wp_';
 /** WordPress Localized Language, defaults to English. */
 define('WPLANG', '');
 
+/** Disable file editor for security **/
+define( 'DISALLOW_FILE_EDIT', true );
+
 /** For developers: WordPress debugging mode. */
 define('WP_DEBUG', false);
+// define('WP_DEBUG_LOG', true);
+// define('WP_DEBUG_DISPLAY', false);
+// @ini_set('display_errors', 0);
 
 /** Absolute path to the WordPress directory. */
 if ( !defined( 'ABSPATH' ) )
