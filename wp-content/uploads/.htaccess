@@ -1,0 +1,8 @@
+# If a file is not found locally, load from the production server
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+
+  RewriteRule (.*) http://example.com/wp-content/uploads/$1
+</IfModule>
