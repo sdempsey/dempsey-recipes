@@ -7,7 +7,7 @@ index.php
 wp-content/*
 !wp-content/plugins
 !wp-content/themes
-!wp-content/uploads/.htaccess
+!wp-content/uploads
 
 # Ignore all plugins except the ones you specify
 wp-content/plugins/*
@@ -16,3 +16,6 @@ wp-content/plugins/*
 # Ignore all themes except the ones you specify
 wp-content/themes/*
 # !wp-content/themes/my-theme
+
+wp-content/uploads/*
+!wp-content/uploads/.htaccess
