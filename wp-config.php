@@ -8,10 +8,10 @@ if ($_SERVER["HTTP_HOST"] === 'dev.madebyvital.com') {
 }
 
 if (WP_ENV == 'development') {
-    define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . '/wp');
-    define('WP_HOME', 'http://' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT']);
+    define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp');
+    define('WP_HOME', 'http://' . $_SERVER['SERVER_NAME']);
     define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . '/wp-content');
-    define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . '/wp-content');
+    define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp-content');
 
     define('DB_NAME', 'dev_db_name');
     define('DB_USER', 'dev_db_user');
@@ -26,7 +26,7 @@ if (WP_ENV == 'development') {
     define('DB_NAME', 'prod_db_name');
     define('DB_USER', 'prod_db_user');
     define('DB_PASSWORD', 'prod_db_password');
-    define('DB_HOST', 'mysql.efeqdev.com');
+    define('DB_HOST', 'localhost');
 }
 
 /** Database charset and collate type. */
