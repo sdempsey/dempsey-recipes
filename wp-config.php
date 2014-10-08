@@ -49,7 +49,7 @@ $table_prefix  = 'wp_';
 /** WordPress Localized Language, defaults to English. */
 define('WPLANG', '');
 
-/** Disable file editor for security **/
+/** Disable file editor in backend for security **/
 define( 'DISALLOW_FILE_EDIT', true );
 
 /** For developers: WordPress debugging mode. */
