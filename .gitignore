@@ -1,7 +1,11 @@
 # Ignore files that don't need tracking
 .DS_Store
 .error_log
+*Thumbs.db
+*.sql
 index.php
+sitemap.*
+wp-config.php
 
 # Ignore everything in wp-content except plugins and themes
 wp-content/*
