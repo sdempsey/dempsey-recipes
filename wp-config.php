@@ -49,17 +49,24 @@ $table_prefix  = 'wp_';
 /** WordPress Localized Language, defaults to English. */
 define('WPLANG', '');
 
-/** Disable uploading plugins/themes **/
+/** Disable uploading plugins/themes */
 define( 'DISALLOW_FILE_MODS', true );
 
 /** Disable auto updates **/
 define( 'AUTOMATIC_UPDATER_DISABLED', true );
 
-/** For developers: WordPress debugging mode. */
-define('WP_DEBUG', false);
-// define('WP_DEBUG_LOG', true);
-// define('WP_DEBUG_DISPLAY', false);
-// @ini_set('display_errors', 0);
+/** Enable WP_DEBUG mode */
+/** NEVER LEAVE THESE OPTIONS ON IN PRODUCTION!!! */
+define( 'WP_DEBUG', false );
+/** Save Database Queries for later analysis */
+// define( 'SAVEQUERIES', true );
+/** Enable Debug logging to the /wp-content/debug.log file */
+// define( 'WP_DEBUG_LOG', true );
+/** Disable display of errors and warnings */
+// define( 'WP_DEBUG_DISPLAY', false );
+// @ini_set('display_errors', 0 );
+/** Use non-minified core styles and scripts */
+// define( 'SCRIPT_DEBUG', true );
 
 /** Absolute path to the WordPress directory. */
 if ( !defined( 'ABSPATH' ) )
