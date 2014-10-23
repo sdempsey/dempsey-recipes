@@ -50,14 +50,14 @@ $table_prefix  = 'wp_';
 define('WPLANG', '');
 
 /** Disable uploading plugins/themes */
-define( 'DISALLOW_FILE_MODS', true );
+define('DISALLOW_FILE_MODS', false);
 
 /** Disable auto updates **/
-define( 'AUTOMATIC_UPDATER_DISABLED', true );
+define('AUTOMATIC_UPDATER_DISABLED', true);
 
 /** Enable WP_DEBUG mode */
 /** NEVER LEAVE THESE OPTIONS ON IN PRODUCTION!!! */
-define( 'WP_DEBUG', false );
+define('WP_DEBUG', false);
 /** Save Database Queries for later analysis */
 // define( 'SAVEQUERIES', true );
 /** Enable Debug logging to the /wp-content/debug.log file */
