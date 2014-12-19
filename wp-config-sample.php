@@ -52,8 +52,12 @@ define('WPLANG', '');
 /** Disable uploading plugins/themes */
 define('DISALLOW_FILE_MODS', false);
 
-/** Disable auto updates **/
+/** Disable auto updates */
 define('AUTOMATIC_UPDATER_DISABLED', true);
+
+/** Optimize/clean up WordPress */
+// Empty all trashes every 30 days
+define('EMPTY_TRASH_DAYS', 30 );
 
 /** Enable WP_DEBUG mode */
 /** NEVER LEAVE THESE OPTIONS ON IN PRODUCTION!!! */
