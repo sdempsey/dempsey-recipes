@@ -1,13 +1,16 @@
 <?php
 
 /** Database settings */
-if ($_SERVER["HTTP_HOST"] === 'dev.madebyvital.com') {
+if ($_SERVER["HTTP_HOST"] === 'example.gotdns.com') {
     define('WP_ENV', 'development');
+} else if ($_SERVER["HTTP_HOST"] === 'dev.example.com') {
+    define('WP_ENV', 'staging');
 } else {
     define('WP_ENV', 'production');
 }
 
 if (WP_ENV == 'development') {
+
     define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp');
     define('WP_HOME', 'http://' . $_SERVER['SERVER_NAME']);
     define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . '/wp-content');
@@ -17,7 +20,21 @@ if (WP_ENV == 'development') {
     define('DB_USER', 'dev_db_user');
     define('DB_PASSWORD', 'dev_db_password');
     define('DB_HOST', 'localhost');
+
+} else if (WP_ENV == 'staging') {
+
+    define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp');
+    define('WP_HOME', 'http://' . $_SERVER['SERVER_NAME']);
+    define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . '/wp-content');
+    define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp-content');
+
+    define('DB_NAME', 'dev_db_name');
+    define('DB_USER', 'dev_db_user');
+    define('DB_PASSWORD', 'dev_db_password');
+    define('DB_HOST', 'localhost');
+
 } else {
+
     define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp');
     define('WP_HOME', 'http://' . $_SERVER['SERVER_NAME']);
     define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . '/wp-content');
