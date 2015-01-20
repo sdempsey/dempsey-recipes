@@ -3,7 +3,7 @@
 .error_log
 *Thumbs.db
 *.sql
-index.php
+/index.php
 sitemap.*
 wp-config.php
 
