@@ -7,12 +7,6 @@ index.php
 sitemap.*
 wp-config.php
 
-# Ignore SyncDB data
-syncdb
-syncdb-config
-syncdb-temp
-.bak
-
 # Ignore everything in wp-content except plugins and themes
 wp-content/*
 !wp-content/plugins
