@@ -75,6 +75,8 @@ define('AUTOMATIC_UPDATER_DISABLED', true);
 /** Optimize/clean up WordPress */
 // Empty all trashes every 30 days
 define('EMPTY_TRASH_DAYS', 30 );
+// More reasonable revisions
+define('WP_POST_REVISIONS', 5);
 
 /** Enable WP_DEBUG mode */
 /** NEVER LEAVE THESE OPTIONS ON IN PRODUCTION!!! */
