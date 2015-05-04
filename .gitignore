@@ -1,11 +1,19 @@
-# Ignore files that don't need tracking
 .DS_Store
-.error_log
 *Thumbs.db
-*.sql
+*.bak
+*.swp
+*.log
+*.tmp
+temp
+tmp
 /index.php
 sitemap.*
-wp-config.php
+*_backup
+wp-config-sample.php
+wp-content/backup*
+wp-content/temp*
+wp-content/managewp
+wp-content/upgrade/*
 
 # Ignore everything in wp-content except plugins and themes
 wp-content/*
@@ -23,3 +31,54 @@ wp-content/themes/*
 
 wp-content/uploads/*
 !wp-content/uploads/.htaccess
+
+# Caches
+.cache
+cache
+imagecache*
+wp-content/w3tc*
+wp-content/w3-*
+wp-content/plugins/*/cache
+
+# Log files
+error_log
+log.txt
+debug.log
+
+# Known large file types
+*.hqx
+*.bin
+*.exe
+*.dll
+*.deb
+*.dmg
+*.iso
+*.img
+*.msi
+*.msp
+*.msm
+*.mid
+*.midi
+*.kar
+*.mp3
+*.ogg
+*.m4a
+*.ra
+*.3gpp
+*.3gp
+*.mp4
+*.mpeg
+*.mpg
+*.mov
+*.webm
+*.flv
+*.m4v
+*.mng
+*.asx
+*.asf
+*.wmv
+*.avi
+*.zip
+*.tar
+*.tgz
+*.gz
