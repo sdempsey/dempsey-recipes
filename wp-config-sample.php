@@ -1,56 +1,92 @@
 <?php
+define('DB_CHARSET', 'utf8');
+define('DB_COLLATE', '');
 
-/** Database settings */
+
+/**
+ * SET UP ENVIRONMENTS
+ */
 if ($_SERVER["HTTP_HOST"] === 'example.gotdns.com') {
+
     define('WP_ENV', 'development');
+
 } else if ($_SERVER["HTTP_HOST"] === 'dev.example.com') {
+
     define('WP_ENV', 'staging');
+
 } else {
+
     define('WP_ENV', 'production');
+
 }
 
-if (WP_ENV == 'development') {
+/**
+ * ENVIRONMENT CONFIGURATIONS
+ */
+if (WP_ENV === 'development') {
 
-    define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp');
+    // Site URLs
+    define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME']);
     define('WP_HOME', 'http://' . $_SERVER['SERVER_NAME']);
-    define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . '/wp-content');
-    define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp-content');
 
+    // Database
     define('DB_NAME', 'dev_db_name');
     define('DB_USER', 'dev_db_user');
     define('DB_PASSWORD', 'dev_db_password');
     define('DB_HOST', 'localhost');
 
-} else if (WP_ENV == 'staging') {
+    // Debugging
+    define('WP_DEBUG', true);
+    define('WP_DEBUG_DISPLAY', false);
+    @ini_set('display_errors', 0);
+    define('SAVEQUERIES', true);
 
-    define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp');
+} else if (WP_ENV === 'staging') {
+
+    // Site URLs
+    define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME']);
     define('WP_HOME', 'http://' . $_SERVER['SERVER_NAME']);
-    define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . '/wp-content');
-    define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp-content');
 
+    // Database
     define('DB_NAME', 'dev_db_name');
     define('DB_USER', 'dev_db_user');
     define('DB_PASSWORD', 'dev_db_password');
     define('DB_HOST', 'localhost');
+
+    // Debugging
+    define('WP_DEBUG', true);
+    define('WP_DEBUG_DISPLAY', false);
+    @ini_set('display_errors', 0);
+    define('SAVEQUERIES', true);
 
 } else {
 
-    define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp');
+    // Site URLs
+    define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME']);
     define('WP_HOME', 'http://' . $_SERVER['SERVER_NAME']);
-    define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . '/wp-content');
-    define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp-content');
 
+    // Database
     define('DB_NAME', 'prod_db_name');
     define('DB_USER', 'prod_db_user');
     define('DB_PASSWORD', 'prod_db_password');
     define('DB_HOST', 'localhost');
+
+    // Disable Debugging
+    define('WP_DEBUG', false);
+
+    // Prevent PHP errors from displaying
+    error_reporting(0);
+    @ini_set('display_errors', 0);
+
 }
 
-/** Database charset and collate type. */
-define('DB_CHARSET', 'utf8');
-define('DB_COLLATE', '');
 
-/** Authentication Unique Keys and Salts. */
+/**
+ * AUTHENTICATION KEYS AND SALTS
+ *
+ * Generate these in production
+ * https://api.wordpress.org/secret-key/1.1/salt
+ */
 define('AUTH_KEY',         'put your unique phrase here');
 define('SECURE_AUTH_KEY',  'put your unique phrase here');
 define('LOGGED_IN_KEY',    'put your unique phrase here');
@@ -60,40 +96,35 @@ define('SECURE_AUTH_SALT', 'put your unique phrase here');
 define('LOGGED_IN_SALT',   'put your unique phrase here');
 define('NONCE_SALT',       'put your unique phrase here');
 
-/** WordPress Database Table prefix. */
+
+/**
+ * DATABASE TABLE PREFIX
+ *
+ * Before installation, change to a random string
+ * https://passwd.me/api/1.0/get_password.txt
+ */
 $table_prefix  = 'wp_';
 
-/** WordPress Localized Language, defaults to English. */
-define('WPLANG', '');
 
-/** Disable uploading plugins/themes */
-define('DISALLOW_FILE_MODS', false);
+/**
+ * SECURITY AND PERFORMANCE
+ */
 
-/** Disable auto updates */
-define('AUTOMATIC_UPDATER_DISABLED', true);
+// Enable minor and major WordPress automatic updates
+define('WP_AUTO_UPDATE_CORE', true);
 
-/** Optimize/clean up WordPress */
-// Empty all trashes every 30 days
-define('EMPTY_TRASH_DAYS', 30 );
-// More reasonable revisions
-define('WP_POST_REVISIONS', 5);
+// Disable backend file editor
+define('DISALLOW_FILE_EDIT', true);
 
-/** Enable WP_DEBUG mode */
-/** NEVER LEAVE THESE OPTIONS ON IN PRODUCTION!!! */
-define('WP_DEBUG', false);
-/** Save Database Queries for later analysis */
-// define( 'SAVEQUERIES', true );
-/** Enable Debug logging to the /wp-content/debug.log file */
-// define( 'WP_DEBUG_LOG', true );
-/** Disable display of errors and warnings */
-// define( 'WP_DEBUG_DISPLAY', false );
-// @ini_set('display_errors', 0 );
-/** Use non-minified core styles and scripts */
-// define( 'SCRIPT_DEBUG', true );
+// Automatically empty trashes
+define('EMPTY_TRASH_DAYS', 30);
 
-/** Absolute path to the WordPress directory. */
-if ( !defined( 'ABSPATH' ) )
-    define( 'ABSPATH', dirname( __FILE__ ) . '/wp/' );
+// Restrict number of revisions kept
+define('WP_POST_REVISIONS', 3);
 
-/** Sets up WordPress vars and included files. */
+/**
+ * That's all, stop editing!
+ */
+if ( !defined('ABSPATH') )
+    define('ABSPATH', dirname(__FILE__) . '/');
 require_once(ABSPATH . 'wp-settings.php');
