@@ -22,7 +22,7 @@ if ($_SERVER["HTTP_HOST"] === 'example.gotdns.com') {
 if (WP_ENV === 'development') {
 
     // Site URLs
-    define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/core');
+    define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp');
     define('WP_HOME', 'http://' . $_SERVER['SERVER_NAME']);
 
     // Database
@@ -40,7 +40,7 @@ if (WP_ENV === 'development') {
 } else if (WP_ENV === 'staging') {
 
     // Site URLs
-    define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/core');
+    define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp');
     define('WP_HOME', 'http://' . $_SERVER['SERVER_NAME']);
 
     // Database
@@ -58,7 +58,7 @@ if (WP_ENV === 'development') {
 } else {
 
     // Site URLs
-    define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/core');
+    define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp');
     define('WP_HOME', 'http://' . $_SERVER['SERVER_NAME']);
 
     // Database
@@ -136,5 +136,5 @@ define('WP_POST_REVISIONS', 3);
  * That's all, stop editing!
  */
 if ( !defined('ABSPATH') )
-    define('ABSPATH', dirname(__FILE__) . '/core/');
+    define('ABSPATH', dirname(__FILE__) . '/wp/');
 require_once(ABSPATH . 'wp-settings.php');
