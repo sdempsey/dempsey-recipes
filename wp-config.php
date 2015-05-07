@@ -31,6 +31,10 @@ if (WP_ENV === 'development') {
     define('DB_PASSWORD', 'dev_db_password');
     define('DB_HOST', 'localhost');
 
+    // Content Directory
+    define('WP_CONTENT_DIR', dirname(__FILE__) . '/wp-content');
+    define('WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/wp-content');
+
     // Debugging
     define('WP_DEBUG', true);
     define('SAVEQUERIES', true);
@@ -48,6 +52,10 @@ if (WP_ENV === 'development') {
     define('DB_USER', 'dev_db_user');
     define('DB_PASSWORD', 'dev_db_password');
     define('DB_HOST', 'localhost');
+
+    // Content Directory
+    define('WP_CONTENT_DIR', dirname(__FILE__) . '/wp-content');
+    define('WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/wp-content');
 
     // Debugging
     define('WP_DEBUG', true);
@@ -67,6 +75,10 @@ if (WP_ENV === 'development') {
     define('DB_PASSWORD', 'prod_db_password');
     define('DB_HOST', 'localhost');
 
+    // Content Directory
+    define('WP_CONTENT_DIR', dirname(__FILE__) . '/wp-content');
+    define('WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/wp-content');
+
     // Disable Debugging
     define('WP_DEBUG', false);
 
@@ -78,13 +90,6 @@ if (WP_ENV === 'development') {
     define('WP_AUTO_UPDATE_CORE', true);
 
 }
-
-
-/**
- * CONTENT DIRECTORY
- */
-define('WP_CONTENT_DIR', dirname(__FILE__) . '/wp-content');
-define('WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/wp-content');
 
 
 /**
