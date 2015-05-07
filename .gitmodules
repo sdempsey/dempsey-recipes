@@ -2,3 +2,6 @@
     path = wp
     url = https://github.com/WordPress/WordPress.git
     ignore = dirty
+[submodule "wp-content/themes/nucleus"]
+	path = wp-content/themes/nucleus
+	url = git@github.com:VitalDevTeam/Nucleus.git
