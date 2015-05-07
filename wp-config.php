@@ -120,8 +120,13 @@ $table_prefix  = 'wp_';
  * SECURITY AND PERFORMANCE
  */
 
+// DEVELOPMENT ONLY
+// Disable WordPress automatic updates
+define('AUTOMATIC_UPDATER_DISABLED', true);
+
+// PRODUCTION ONLY
 // Enable minor and major WordPress automatic updates
-define('WP_AUTO_UPDATE_CORE', true);
+// define('WP_AUTO_UPDATE_CORE', true);
 
 // Disable backend file editor
 define('DISALLOW_FILE_EDIT', true);
