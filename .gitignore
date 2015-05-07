@@ -16,7 +16,7 @@ wp-content/*
 
 # Ignore all plugins except the ones you specify
 wp-content/plugins/*
-# !wp-content/plugins/custom-post-type-boilerplate
+!wp-content/plugins/custom-post-type-boilerplate
 
 # Ignore all themes except the ones you specify
 wp-content/themes/*
