@@ -1,25 +1,18 @@
 .DS_Store
-*Thumbs.db
-*.bak
-*.swp
 *.log
-*.tmp
-temp
-tmp
-/index.php
-sitemap.*
-*_backup
-wp-config-sample.php
-wp-content/backup*
-wp-content/temp*
-wp-content/managewp
-wp-content/upgrade/*
+error_log
+sitemap.xml
+sitemap.xml.gz
+/readme.html
+/license.txt
+wp-content/advanced-cache.php
+wp-content/cache/
+wp-content/upgrade/
 
 # Ignore everything in wp-content except plugins and themes
 wp-content/*
 !wp-content/plugins
 !wp-content/themes
-!wp-content/uploads
 
 # Ignore all plugins except the ones you specify
 wp-content/plugins/*
@@ -28,57 +21,3 @@ wp-content/plugins/*
 # Ignore all themes except the ones you specify
 wp-content/themes/*
 !wp-content/themes/nucleus
-
-wp-content/uploads/*
-!wp-content/uploads/.htaccess
-
-# Caches
-.cache
-cache
-imagecache*
-wp-content/w3tc*
-wp-content/w3-*
-wp-content/plugins/*/cache
-
-# Log files
-error_log
-log.txt
-debug.log
-
-# Known large file types
-*.hqx
-*.bin
-*.exe
-*.dll
-*.deb
-*.dmg
-*.iso
-*.img
-*.msi
-*.msp
-*.msm
-*.mid
-*.midi
-*.kar
-*.mp3
-*.ogg
-*.m4a
-*.ra
-*.3gpp
-*.3gp
-*.mp4
-*.mpeg
-*.mpg
-*.mov
-*.webm
-*.flv
-*.m4v
-*.mng
-*.asx
-*.asf
-*.wmv
-*.avi
-*.zip
-*.tar
-*.tgz
-*.gz
