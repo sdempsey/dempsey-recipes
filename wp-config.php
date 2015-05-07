@@ -37,9 +37,6 @@ if (WP_ENV === 'development') {
     define('WP_DEBUG_DISPLAY', false);
     @ini_set('display_errors', 0);
 
-    // Disable WordPress automatic updates
-    define('AUTOMATIC_UPDATER_DISABLED', true);
-
 } else if (WP_ENV === 'staging') {
 
     // Site URLs
@@ -57,9 +54,6 @@ if (WP_ENV === 'development') {
     define('SAVEQUERIES', true);
     define('WP_DEBUG_DISPLAY', false);
     @ini_set('display_errors', 0);
-
-    // Disable WordPress automatic updates
-    define('AUTOMATIC_UPDATER_DISABLED', true);
 
 } else {
 
