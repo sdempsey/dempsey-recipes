@@ -26,7 +26,7 @@ if ($_SERVER["HTTP_HOST"] === 'example.gotdns.com') {
 if (WP_ENV === 'development') {
 
     // Site URLs
-    define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME']);
+    define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/core');
     define('WP_HOME', 'http://' . $_SERVER['SERVER_NAME']);
 
     // Database
@@ -44,7 +44,7 @@ if (WP_ENV === 'development') {
 } else if (WP_ENV === 'staging') {
 
     // Site URLs
-    define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME']);
+    define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/core');
     define('WP_HOME', 'http://' . $_SERVER['SERVER_NAME']);
 
     // Database
@@ -62,7 +62,7 @@ if (WP_ENV === 'development') {
 } else {
 
     // Site URLs
-    define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME']);
+    define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/core');
     define('WP_HOME', 'http://' . $_SERVER['SERVER_NAME']);
 
     // Database
