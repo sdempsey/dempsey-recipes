@@ -37,6 +37,9 @@ if (WP_ENV === 'development') {
     define('WP_DEBUG_DISPLAY', false);
     @ini_set('display_errors', 0);
 
+    // Disable WordPress automatic updates
+    define('AUTOMATIC_UPDATER_DISABLED', true);
+
 } else if (WP_ENV === 'staging') {
 
     // Site URLs
@@ -54,6 +57,9 @@ if (WP_ENV === 'development') {
     define('SAVEQUERIES', true);
     define('WP_DEBUG_DISPLAY', false);
     @ini_set('display_errors', 0);
+
+    // Disable WordPress automatic updates
+    define('AUTOMATIC_UPDATER_DISABLED', true);
 
 } else {
 
@@ -73,6 +79,9 @@ if (WP_ENV === 'development') {
     // Prevent PHP errors from displaying
     error_reporting(0);
     @ini_set('display_errors', 0);
+
+    // Enable minor and major WordPress automatic updates
+    define('WP_AUTO_UPDATE_CORE', true);
 
 }
 
@@ -119,14 +128,6 @@ $table_prefix  = 'wp_';
 /**
  * SECURITY AND PERFORMANCE
  */
-
-// DEVELOPMENT ONLY
-// Disable WordPress automatic updates
-define('AUTOMATIC_UPDATER_DISABLED', true);
-
-// PRODUCTION ONLY
-// Enable minor and major WordPress automatic updates
-// define('WP_AUTO_UPDATE_CORE', true);
 
 // Disable backend file editor
 define('DISALLOW_FILE_EDIT', true);
