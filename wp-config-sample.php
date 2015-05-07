@@ -1,8 +1,4 @@
 <?php
-define('DB_CHARSET', 'utf8');
-define('DB_COLLATE', '');
-
-
 /**
  * SET UP ENVIRONMENTS
  */
@@ -37,9 +33,9 @@ if (WP_ENV === 'development') {
 
     // Debugging
     define('WP_DEBUG', true);
+    define('SAVEQUERIES', true);
     define('WP_DEBUG_DISPLAY', false);
     @ini_set('display_errors', 0);
-    define('SAVEQUERIES', true);
 
 } else if (WP_ENV === 'staging') {
 
@@ -55,9 +51,9 @@ if (WP_ENV === 'development') {
 
     // Debugging
     define('WP_DEBUG', true);
+    define('SAVEQUERIES', true);
     define('WP_DEBUG_DISPLAY', false);
     @ini_set('display_errors', 0);
-    define('SAVEQUERIES', true);
 
 } else {
 
@@ -79,6 +75,20 @@ if (WP_ENV === 'development') {
     @ini_set('display_errors', 0);
 
 }
+
+
+/**
+ * CONTENT DIRECTORY
+ */
+define('WP_CONTENT_DIR', dirname(__FILE__) . '/wp-content');
+define('WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/wp-content');
+
+
+/**
+ * CHARSET, ETC.
+ */
+define('DB_CHARSET', 'utf8');
+define('DB_COLLATE', '');
 
 
 /**
