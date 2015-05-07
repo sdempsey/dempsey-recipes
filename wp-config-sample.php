@@ -136,5 +136,5 @@ define('WP_POST_REVISIONS', 3);
  * That's all, stop editing!
  */
 if ( !defined('ABSPATH') )
-    define('ABSPATH', dirname(__FILE__) . '/');
+    define('ABSPATH', dirname(__FILE__) . '/core/');
 require_once(ABSPATH . 'wp-settings.php');
