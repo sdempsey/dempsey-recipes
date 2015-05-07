@@ -4,13 +4,12 @@ error_log
 .sass-cache
 node_modules
 *.css.map
-sitemap.xml
-sitemap.xml.gz
-/readme.html
-/license.txt
 wp-content/advanced-cache.php
-wp-content/cache/
-wp-content/upgrade/
+wp-content/cache
+wp-content/db.php
+wp-content/object-cache.php
+wp-content/upgrade
+wp-content/w3tc-config
 
 # Ignore everything in wp-content except plugins and themes
 wp-content/*
