@@ -1,6 +1,9 @@
 .DS_Store
 *.log
 error_log
+.sass-cache
+node_modules
+*.css.map
 sitemap.xml
 sitemap.xml.gz
 /readme.html
