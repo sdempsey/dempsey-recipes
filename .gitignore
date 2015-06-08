@@ -1,9 +1,9 @@
 .DS_Store
 *.log
 error_log
-.sass-cache
+wp-content/themes/**/.sass-cache
 node_modules
-*.css.map
+wp-content/themes/**/*.css.map
 wp-content/advanced-cache.php
 wp-content/cache
 wp-content/db.php
