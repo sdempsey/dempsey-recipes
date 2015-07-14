@@ -37,9 +37,11 @@ if (WP_ENV === 'development') {
 
     // Debugging
     define('WP_DEBUG', true);
-    define('SAVEQUERIES', true);
+    define('WP_DEBUG_LOG', true);
     define('WP_DEBUG_DISPLAY', false);
     @ini_set('display_errors', 0);
+    // define('SAVEQUERIES', true);
+    // define('SCRIPT_DEBUG', true);
 
 } else if (WP_ENV === 'staging') {
 
@@ -59,9 +61,11 @@ if (WP_ENV === 'development') {
 
     // Debugging
     define('WP_DEBUG', true);
-    define('SAVEQUERIES', true);
+    define('WP_DEBUG_LOG', true);
     define('WP_DEBUG_DISPLAY', false);
     @ini_set('display_errors', 0);
+    // define('SAVEQUERIES', true);
+    // define('SCRIPT_DEBUG', true);
 
 } else {
 
