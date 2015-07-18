@@ -5,7 +5,7 @@ module.exports = function(grunt) {
   	"use strict";
 
   	var globalConfig = {
-  		path: 'wp-content/themes/skeleton' //update your theme name,
+  		path: 'wp-content/themes/recipes' //update your theme name,
   	};
 
 	grunt.initConfig({

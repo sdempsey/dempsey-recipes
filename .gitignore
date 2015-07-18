@@ -22,4 +22,4 @@ wp-content/plugins/*
 
 # Ignore all themes except the ones you specify
 wp-content/themes/*
-!wp-content/themes/nucleus
+!wp-content/themes/recipes

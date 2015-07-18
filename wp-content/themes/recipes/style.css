@@ -1,0 +1,753 @@
+/*
+    Theme Name:     Nucleus
+    Theme URI:      http://vtldesign.com
+    Description:    A blank WordPress theme
+    Version:        1.0
+    Author:         Vital
+    Author URI:     http://vtldesign.com
+*/
+
+/* --------------------------------------------------------------------------
+
+    TABLE OF CONTENTS
+
+    1. Reset & Global
+    2. Core Layout
+    3. Core Elements & Typography
+        3.1. Headings
+        3.2. Paragraph and Emphasis
+        3.3. Lists
+        3.4. Tables
+        3.5. Images
+        3.6. Captions
+        3.7. Galleries
+        3.8. Miscellaneous
+        3.9. Alignment
+        3.10. Gravity Forms
+    4. Header
+    5. Footer
+    6. Navigation
+        6.1. Main Navigation
+        6.2. Utility Navigation
+        6.3. Footer Navigation
+    7. UI Elements
+    8. Global Blocks
+
+
+/*  ==========================================================================
+     1. RESET & GLOBAL
+    ==========================================================================  */
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+ol, ul {
+    list-style: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+    cursor: pointer;
+}
+button[disabled], html input[disabled] {
+    cursor: default;
+}
+button::-moz-focus-inner, input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+input {
+    line-height: normal;
+}
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font: inherit;
+}
+select, textarea, button, html input[type="button"], input[type="reset"],
+input[type="submit"], input[type="text"], input[type="url"], input[type="email"],
+input[type="tel"], input[type="number"], input[type="search"], input[type="password"] {
+    -webkit-appearance: none;
+    -moz-appearance:    none;
+    appearance:         none;
+    border-radius: 0;
+}
+
+::-moz-selection { background: #0096d2; color:#fff; }
+::selection { background: #0096d2; color:#fff; }
+
+*,
+*:before,
+*:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body {
+    position: relative;
+    background: #fff;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1.25;
+}
+a {
+    color: #0096d2;
+    text-decoration: none;
+}
+.group:before,
+.group:after { content: " "; display: table; }
+.group:after { clear: both; }
+
+.screen-reader-text {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+/*  ==========================================================================
+     2. LAYOUT
+    ==========================================================================  */
+
+
+/*  ==========================================================================
+     3. CORE ELEMENTS & TYPOGRAPHY
+    ==========================================================================  */
+
+.entry a {
+    color: orange;
+}
+
+/*   3.1. Headings
+    --------------------------------------------------------------------------  */
+
+.entry h1 {
+    margin-top: 1.67em;
+    margin-bottom: .5em;
+    font-size: 1.75em;
+    line-height: 1.3;
+}
+.entry h2 {
+    margin: 1.2em 0 .4em;
+    font-size: 1.375em;
+    line-height: 1.3;
+}
+.entry h1 + h2 {
+    margin-top: -.5em;
+}
+.entry h3 {
+    margin: 1.8em 0 .4em;
+    font-size: 1.125em;
+    line-height: 1.5;
+}
+.entry h2 + h3 {
+    margin-top: -.4em;
+    margin-bottom: .2em;
+}
+.entry h4 {
+    margin: 1.8em 0 .4em;
+    font-size: 1em;
+    line-height: 1.5;
+}
+.entry h3 + h4 {
+    margin-top: -.3em;
+}
+.entry h5 {
+    margin: 1.8em 0 .4em;
+    font-size: .875em;
+    line-height: 1.5;
+}
+.entry h4 + h5 {
+    margin-top: -.3em;
+}
+.entry h6 {
+    margin: 1.8em 0 .4em;
+    font-size: .875em;
+    line-height: 1.5;
+}
+.entry h5 + h6 {
+    margin-top: -.2em;
+}
+.entry h1:first-child,
+.entry h2:first-child,
+.entry h3:first-child,
+.entry h4:first-child,
+.entry h5:first-child,
+.entry h6:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+@media screen and (min-width: 37.5em) {
+
+    .entry h1 {
+        font-size: 2em;
+    }
+    .entry h2 {
+        font-size: 1.5em;
+    }
+    .entry h3 {
+        font-size: 1.25em;
+    }
+    .entry h4 {
+        font-size: 1.125em;
+    }
+    .entry h5 {
+        font-size: 1em;
+    }
+    .entry h6 {
+        font-size: 1em;
+    }
+}
+
+/*   3.2. Paragraph and Emphasis
+    --------------------------------------------------------------------------  */
+
+.entry p,
+.entry address {
+    margin: 1em 0 0;
+    font-size: .875em;
+}
+.entry p {
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+.entry p:first-child {
+    margin-top: 0;
+}
+.entry blockquote {
+    margin: 1.75em 2.5em;
+    font-style: italic;
+    line-height: 1.5;
+}
+.entry code,
+.entry pre {
+    font-family: "Andale Mono", monospace;
+    font-size: .875em;
+}
+.entry pre {
+    margin: 1em 0 0;
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+.entry sub,
+.entry sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+.entry sup {
+    top: -0.5em;
+}
+.entry sub {
+    bottom: -0.25em;
+}
+.entry abbr {
+    cursor: help;
+}
+.entry address {
+    line-height: 1.5;
+}
+@media (min-width: 37.5em) {
+
+    .entry p,
+    .entry pre,
+    .entry address {
+        font-size: 1em;
+    }
+}
+
+
+/*   3.3. Lists
+    --------------------------------------------------------------------------  */
+
+.entry dl {
+    line-height: 1.5;
+}
+.entry dt,
+.entry dd {
+    font-size: .875em;
+}
+.entry dt {
+    font-weight: bold;
+}
+.entry dd {
+    margin: 0 0 1em 0;
+}
+.entry ul,
+.entry ol {
+    margin: 1em 0;
+}
+.entry ul,
+.entry ol {
+    padding: 0 0 0 2.5em;
+}
+.entry ul {
+    list-style-type: disc;
+}
+.entry ul ul {
+    margin: 0;
+    list-style-type: circle;
+}
+.entry ul ul ul {
+    list-style-type: square;
+}
+.entry ol {
+    list-style-type: decimal;
+}
+.entry li {
+    margin-top: .5em;
+    font-size: .875em;
+    line-height: 1.5;
+}
+.entry li li {
+    font-size: 1em;
+}
+@media (min-width: 37.5em) {
+
+    .entry dt,
+    .entry dd {
+        font-size: 1em;
+    }
+    .entry li {
+        font-size: 1em;
+    }
+}
+
+/*   3.4. Tables
+    --------------------------------------------------------------------------  */
+
+.entry table {
+    margin: 0;
+    padding: 0;
+}
+.entry th,
+.entry td {
+    padding: .625em 1.25em;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #ccc;
+    border-bottom-color: rgba(0,0,0,.1);
+    font-size: .875em;
+    text-align: left;
+}
+.entry th {
+    border-width: 2px;
+}
+.entry tr:last-child td {
+    border-bottom: none;
+}
+.entry tr:nth-child(even) {
+    background: #eee;
+    background: rgba(0,0,0,.1);
+}
+@media screen and (max-width: 37.5em) {
+
+    .entry table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .entry th,
+    .entry td {
+        font-size: 1em;
+    }
+}
+
+/*   3.5. Images
+    --------------------------------------------------------------------------  */
+
+.entry img,
+.entry img[class*="align"],
+.entry img[class*="wp-image-"] {
+    max-width: 100%;
+    height: auto;
+    border: none;
+}
+
+/*   3.6. Captions
+    --------------------------------------------------------------------------  */
+
+.entry .wp-caption {
+    max-width: 96%;
+    padding: 5px 3px 10px;
+    text-align: center;
+}
+.entry .wp-caption img {
+    max-width: 98.5%;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+}
+.entry .wp-caption .wp-caption-text,
+.entry .entry-caption {
+    margin: 0;
+    padding: 0 4px 5px;
+    font-size: .875em;
+    line-height: 1.5;
+}
+
+/*   3.7. Galleries
+    --------------------------------------------------------------------------  */
+
+.entry .gallery {
+    position: relative;
+    float: left;
+    left: 50%;
+    margin: 2em 0;
+}
+.entry .gallery + * {
+    clear: left;
+}
+.entry .gallery-item {
+    position: relative;
+    float: left;
+    left: -50%;
+    margin: 0 .25em .25em 0;
+}
+.entry .gallery-columns-1 .gallery-item {
+    max-width: 100%;
+}
+.entry .gallery-columns-2 .gallery-item {
+    max-width: 48%;
+    max-width: -webkit-calc(50% - .25em);
+    max-width:         calc(50% - .25em);
+}
+.entry .gallery-columns-3 .gallery-item {
+    max-width: 32%;
+    max-width: -webkit-calc(33.3% - .25em);
+    max-width:         calc(33.3% - .25em);
+}
+.entry .gallery-columns-4 .gallery-item {
+    max-width: 23%;
+    max-width: -webkit-calc(25% - .25em);
+    max-width:         calc(25% - .25em);
+}
+.entry .gallery-columns-5 .gallery-item {
+    max-width: 19%;
+    max-width: -webkit-calc(20% - .25em);
+    max-width:         calc(20% - .25em);
+}
+.entry .gallery-columns-6 .gallery-item {
+    max-width: 15%;
+    max-width: -webkit-calc(16.7% - .25em);
+    max-width:         calc(16.7% - .25em);
+}
+.entry .gallery-columns-7 .gallery-item {
+    max-width: 13%;
+    max-width: -webkit-calc(14.28% - .25em);
+    max-width:         calc(14.28% - .25em);
+}
+.entry .gallery-columns-8 .gallery-item {
+    max-width: 11%;
+    max-width: -webkit-calc(12.5% - .25em);
+    max-width:         calc(12.5% - .25em);
+}
+.entry .gallery-columns-9 .gallery-item {
+    max-width: 9%;
+    max-width: -webkit-calc(11.1% - .25em);
+    max-width:         calc(11.1% - .25em);
+}
+.entry .gallery-columns-1 .gallery-item {
+    margin: 0 0 .25em;
+}
+.entry .gallery-columns-2 .gallery-item:nth-child(2n),
+.entry .gallery-columns-3 .gallery-item:nth-child(3n),
+.entry .gallery-columns-4 .gallery-item:nth-child(4n),
+.entry .gallery-columns-5 .gallery-item:nth-child(5n),
+.entry .gallery-columns-6 .gallery-item:nth-child(6n),
+.entry .gallery-columns-7 .gallery-item:nth-child(7n),
+.entry .gallery-columns-8 .gallery-item:nth-child(8n),
+.entry .gallery-columns-9 .gallery-item:nth-child(9n) {
+    margin-right: 0;
+}
+.entry .gallery-columns-1 .gallery-item:nth-child(1n+1),
+.entry .gallery-columns-2 .gallery-item:nth-child(2n+3),
+.entry .gallery-columns-3 .gallery-item:nth-child(3n+4),
+.entry .gallery-columns-4 .gallery-item:nth-child(4n+5),
+.entry .gallery-columns-5 .gallery-item:nth-child(5n+6),
+.entry .gallery-columns-6 .gallery-item:nth-child(6n+7),
+.entry .gallery-columns-7 .gallery-item:nth-child(7n+8),
+.entry .gallery-columns-8 .gallery-item:nth-child(8n+9),
+.entry .gallery-columns-9 .gallery-item:nth-child(9n+10) {
+    clear: left;
+}
+.entry .gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 50%;
+    margin: 0;
+    padding: 6px 8px;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: .875em;
+    line-height: 1.5;
+    text-align: left;
+}
+.entry .gallery-caption:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 49px;
+}
+.entry .gallery-item:hover .gallery-caption {
+    opacity: 1;
+}
+
+/*   3.8. Miscellaneous
+    --------------------------------------------------------------------------  */
+
+.entry hr {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    clear: both;
+    height: 1px;
+    margin-top: 1em;
+    padding: 0;
+    border: 0;
+    border-top: 1px solid #ccc;
+}
+.entry iframe {
+    max-width: 100%;
+    width: 100% !important;
+}
+.entry iframe[src*="youtube"],
+.entry iframe[src*="vimeo"] {
+    display: block;
+    margin: 0 auto;
+}
+
+/*   3.9. Alignment
+    --------------------------------------------------------------------------  */
+
+.entry .alignnone {
+    margin: 1em 1em 0 0;
+}
+.entry .aligncenter {
+    display: block;
+    margin: 1em auto;
+}
+.entry .alignright,
+.entry .alignleft {
+    display: block;
+    margin: 1em auto;
+}
+.entry .aligncenter {
+    display: block;
+    margin: 1em auto;
+}
+.entry img.alignright,
+.entry img.alignleft {
+    display: block;
+    margin: 1em auto;
+}
+.entry img.aligncenter{
+    display: block;
+    margin: 1em auto;
+}
+.entry .wp-caption.alignnone {
+    margin: 5px 20px 20px 0;
+}
+.entry .wp-caption.alignleft {
+    margin: 5px 20px 20px 0;
+}
+.entry .wp-caption.alignright {
+    margin: 5px 0 20px 20px;
+}
+@media screen and (min-width: 37.5em) {
+
+    .entry .alignright {
+        float: right;
+        margin: 0 0 1em 1em;
+    }
+    .entry .alignleft {
+        float: left;
+        margin: 0 1em 1em 0;
+    }
+    .entry img.alignright {
+        float: right;
+        margin: 1em 0 1em 1em;
+    }
+    .entry img.alignleft {
+        float: left;
+        margin: 1em 1em 1em 0;
+    }
+}
+
+/*   3.10. Gravity Forms
+    --------------------------------------------------------------------------  */
+
+.entry .gform_wrapper ul {
+    margin: 0;
+    padding: 0;
+}
+.entry .gform_wrapper li {
+    list-style: none;
+}
+.entry .gfield {
+    margin-bottom: 1em;
+}
+.entry .gform_wrapper label {
+    display: block;
+    font-weight: bold;
+}
+.entry .gform_wrapper select,
+.entry .gform_wrapper textarea,
+.entry .gform_wrapper input[type=text],
+.entry .gform_wrapper input[type=url],
+.entry .gform_wrapper input[type=email],
+.entry .gform_wrapper input[type=tel],
+.entry .gform_wrapper input[type=number],
+.entry .gform_wrapper input[type=password] {
+    display: block;
+    width: 100%;
+    padding: .5em;
+    border: 1px solid #ccc;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 1em;
+}
+.entry .ginput_complex .ginput_left,
+.entry .ginput_complex .ginput_right,
+.entry .ginput_complex .ginput_full {
+    display: block;
+    margin-bottom: 1em;
+}
+.entry .ginput_complex .ginput_left label,
+.entry .ginput_complex .ginput_right label,
+.entry .ginput_complex .ginput_full label {
+    display: block;
+    font-size: .875em;
+    font-weight: normal;
+}
+.entry .gfield_checkbox input,
+.entry .gfield_checkbox label,
+.entry .gfield_radio input,
+.entry .gfield_radio label {
+    display: inline;
+    vertical-align: middle;
+    font-weight: normal;
+}
+.entry .gfield_checkbox li,
+.entry .gfield_radio li {
+    padding-left: 1.5em;
+    text-indent: -1.5em;
+}
+.entry .gform_fileupload_multifile .gform_drop_area {
+    margin-bottom: 10px;
+    padding: 25px;
+    border: 2px dashed #ddd;
+    color: #aaa;
+    text-align: center;
+}
+.entry .gfield_description {
+    font-size: .75em;
+}
+.entry .validation_message {
+    color: #d9534f;
+    font-size: .75em;
+    font-weight: bold;
+}
+.entry .validation_error {
+    margin: 1.5em 0;
+    padding: 1.5em;
+    border-left: 5px solid #d9534f;
+    color: #d9534f;
+    font-size: .875em;
+    font-weight: bold;
+    line-height: 1.5;
+}
+.gform_ajax_spinner {
+    margin-left: 1em;
+}
+.gform_validation_container {
+    display: none;
+}
+.gf_clear {
+    clear: both;
+}
+@media screen and (min-width: 37.5em) {
+
+    .entry .ginput_complex .ginput_left {
+        float: left;
+        width: 48%;
+    }
+    .entry .ginput_complex .ginput_right {
+        float: right;
+        width: 48%;
+    }
+    .entry .validation_error {
+        font-size: 1em;
+    }
+}
+
+/*  ==========================================================================
+     4. HEADER
+    ==========================================================================  */
+
+
+/*  ==========================================================================
+     5. FOOTER
+    ==========================================================================  */
+
+
+/*  ==========================================================================
+     6. NAVIGATION
+    ==========================================================================  */
+
+/*   6.1. Main Navigation
+    --------------------------------------------------------------------------  */
+
+/*   6.2. Utility Navigation
+    --------------------------------------------------------------------------  */
+
+/*   6.3. Footer Navigation
+    --------------------------------------------------------------------------  */
+
+
+/*  ==========================================================================
+     7. UI ELEMENTS
+    ==========================================================================  */
+
+
+/*  ==========================================================================
+     8. GLOBAL BLOCKS
+    ==========================================================================  */

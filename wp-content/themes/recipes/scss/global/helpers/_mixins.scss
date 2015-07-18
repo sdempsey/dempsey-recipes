@@ -1,0 +1,609 @@
+// 	/*
+// 		========================================
+// 			::Table of Contents
+//
+//	 		1.  Function to convert px to em
+// 			2.  Centering Mixin
+// 			3.  Maintain Aspect Ratio Mixin
+//	 		4.  Clearfix Hack
+// 			5.  Covering Mixin
+// 			6.  Triangle Mixin
+// 			7.  Custom Scroll Bars
+// 			8.	Font Smoothing
+// 			9.	Custom Scroll Bars
+// 			10.	Positioning Mixins
+// 			11.	Simple Asset Helper Functions
+// 			12.	BEM Mixins
+// 			13.	Simplify Events Mixin
+//			14. Ultimate Rem Mixin
+//			15. Sticky Header Mixin
+//			16. Margin Center 
+//			17. Screen Reader Text
+//
+// 		========================================
+// */
+
+
+// 	/*
+// 		========================================
+// 			::Function to convert px to em
+// 		========================================
+// 	*/
+
+	$base-font-size: 16px;
+
+	@function em($px, $base: $base-font-size) {
+		@return ($px / $base) + 0em;
+	}
+
+	//Example Usage: 
+	// 	.example {
+	// 		font-size: em(16px)
+	// 	}
+
+// 	/*
+// 		========================================
+// 			::Centering Mixin
+// 		========================================
+// 	*/
+
+	@mixin center($extend: true) {
+		@if $extend {
+			@extend %center;
+		} @else {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translateX(-50%) translateY(-50%);
+		}
+	}
+
+	%center {
+		@include center($extend: false);
+	}
+
+	@mixin vertical-center($extend: true) {
+		@if $extend {
+			@extend %vertical-center;
+		} @else {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+
+	%vertical-center {
+		@include vertical-center($extend: false);
+	}	
+
+// 	/*
+// 		========================================
+// 			::Maintain Aspect Ratio Mixin
+// 		========================================
+// 	*/
+
+	@mixin maintain-aspect-ratio($width, $height) {
+		position: relative;
+		&:before {
+			display: block;
+			content: " ";
+			width: 100%;
+			padding-top: ($height / $width) * 100%;
+		}
+
+		> .content {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+		}
+	}
+
+// 	/*
+// 		========================================
+// 			::Clearfix Hack
+// 		========================================
+// 	*/
+
+	@mixin clearfix($extend: true) {
+		@if $extend {
+			@extend %clearfix;
+		} @else {
+			&:after {
+				content: '';
+				display: table;
+				clear: both;
+			}
+		}
+	}
+
+	%clearfix {
+	  @include clearfix($extend: false);
+	}
+
+// 	/*
+// 		========================================
+// 			::Covering Mixin
+// 		========================================
+// 	*/
+
+	@mixin coverer($extend: true) {
+		@if $extend {
+			@extend %coverer;
+		} @else {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	%coverer {
+		@include coverer($extend: false);
+	}
+
+// 	/*
+// 		========================================
+// 			::Triangle Mixin
+// 		========================================
+// 	*/
+
+	@mixin triangle($side, $width, $height, $color) {
+		width: 0;
+		height: 0;
+		border-style: inset;
+
+		@if ($side == 'top') {
+			border-width: 0 ($width/2)+0px $height+0px ($width/2)+0px;
+			border-color: rgba(255, 255, 255, 0) rgba(255, 255, 255, 0) $color rgba(255, 255, 255, 0);
+			border-bottom-style: solid;
+		}
+
+		@else if ($side == 'right') {
+			border-width: ($height/2)+0px 0 ($height/2)+0px $width+0px;
+			border-color: rgba(255, 255, 255, 0) rgba(255, 255, 255, 0) rgba(255, 255, 255, 0) $color;
+			border-left-style: solid;
+		}
+
+		@else if ($side == 'bottom') {
+			border-width: $height+0px ($width/2)+0px 0 ($width/2)+0px;
+			border-color:$color rgba(255, 255, 255, 0) rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
+			border-top-style: solid;
+		}
+
+		@else if ($side == 'left') {
+			border-width: ($height/2)+0px $width+0px ($height/2)+0px 0;
+			border-color: rgba(255, 255, 255, 0) $color rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
+			border-right-style: solid;
+		}
+	}
+
+// 	/*
+// 		========================================
+// 			::Custom Scroll Bars
+// 		========================================
+// 	*/
+	
+	// @author Sean Dempsey
+	// Easing Function Map Get
+	// Full Example and Demo: https://css-tricks.com/snippets/sass/easing-map-get-function/
+
+	$ease: (
+	  in-quad:      cubic-bezier(0.550,  0.085, 0.680, 0.530),
+	  in-cubic:     cubic-bezier(0.550,  0.055, 0.675, 0.190),
+	  in-quart:     cubic-bezier(0.895,  0.030, 0.685, 0.220),
+	  in-quint:     cubic-bezier(0.755,  0.050, 0.855, 0.060),
+	  in-sine:      cubic-bezier(0.470,  0.000, 0.745, 0.715),
+	  in-expo:      cubic-bezier(0.950,  0.050, 0.795, 0.035),
+	  in-circ:      cubic-bezier(0.600,  0.040, 0.980, 0.335),
+	  in-back:      cubic-bezier(0.600, -0.280, 0.735, 0.045),
+	  out-quad:     cubic-bezier(0.250,  0.460, 0.450, 0.940),
+	  out-cubic:    cubic-bezier(0.215,  0.610, 0.355, 1.000),
+	  out-quart:    cubic-bezier(0.165,  0.840, 0.440, 1.000),
+	  out-quint:    cubic-bezier(0.230,  1.000, 0.320, 1.000),
+	  out-sine:     cubic-bezier(0.390,  0.575, 0.565, 1.000),
+	  out-expo:     cubic-bezier(0.190,  1.000, 0.220, 1.000),
+	  out-circ:     cubic-bezier(0.075,  0.820, 0.165, 1.000),
+	  out-back:     cubic-bezier(0.175,  0.885, 0.320, 1.275),
+	  in-out-quad:  cubic-bezier(0.455,  0.030, 0.515, 0.955),
+	  in-out-cubic: cubic-bezier(0.645,  0.045, 0.355, 1.000),
+	  in-out-quart: cubic-bezier(0.770,  0.000, 0.175, 1.000),
+	  in-out-quint: cubic-bezier(0.860,  0.000, 0.070, 1.000),
+	  in-out-sine:  cubic-bezier(0.445,  0.050, 0.550, 0.950),
+	  in-out-expo:  cubic-bezier(1.000,  0.000, 0.000, 1.000),
+	  in-out-circ:  cubic-bezier(0.785,  0.135, 0.150, 0.860),
+	  in-out-back:  cubic-bezier(0.680, -0.550, 0.265, 1.550)
+	);
+
+	@function ease($key) {
+	  @if map-has-key($ease, $key) {
+	    @return map-get($ease, $key);
+	  }
+
+	  @warn "Unkown '#{$key}' in $ease.";
+	  @return null;
+	}
+
+// Example Usage:
+// 	.example {
+// 		animation: there-and-back 2.5s ease(in-quad) infinite alternate;
+// 	}
+
+
+// 	/*
+// 		========================================
+// 			::Font Smoothing
+// 		========================================
+// 	*/
+
+	@mixin font-smoothing($extend: true) {
+		@if $extend {
+			@extend %font-smoothing;
+		} @else {
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale
+		}
+	}
+
+	%font-smoothing {
+		@include font-smoothing($extend: false);
+	}
+
+// 	/*
+// 		========================================
+// 			::Custom Scroll Bars
+// 		========================================
+// 	*/
+
+	// Mixin to customize scrollbars
+	// Beware, this does not work in all browsers
+	// @author Hugo Giraudel
+	// @param {Length} $size - Horizontal scrollbar's height and vertical scrollbar's width
+	// @param {Color} $foreground-color - Scrollbar's color
+	// @param {Color} $background-color [mix($foreground-color, white, 50%)] - Scrollbar's color
+	// @example scss - Scrollbar styling
+	//   @include scrollbars(.5em, slategray);  <----- EXAMPLE HERE
+	@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+	  // For Google Chrome
+		::-webkit-scrollbar {
+			width:  $size;
+			height: $size;
+		}
+
+	  	::-webkit-scrollbar-thumb {
+			background: $foreground-color;
+	  	}
+
+	  	::-webkit-scrollbar-track {
+			background: $background-color;
+	  	}
+
+	  	// For Internet Explorer
+	  	body {
+			scrollbar-face-color: $foreground-color;
+			scrollbar-track-color: $background-color;
+	  	}
+	}
+
+// 	/*
+// 		========================================
+// 			::Positioning Mixins
+// 		========================================
+// 	*/
+
+	// Shorthand mixin for offset positioning
+	// @param {String} $position - Either `relative`, `absolute` or `fixed`
+	// @param {Length} $top [null] - Top offset
+	// @param {Length} $right [null] - Right offset
+	// @param {Length} $bottom [null] - Bottom offset
+	// @param {Length} $left [null] - Left offset
+	@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+	  position: $position;
+	  top: $top;
+	  right: $right;
+	  bottom: $bottom;
+	  left: $left;
+	}
+
+	// Shorthand mixin for absolute positioning
+	// Serves as an alias for `position(absolute, ...)`
+	// @param {Arglist} $args - Offsets
+	// @require {mixin} position
+	@mixin absolute($args...) {
+		@include position(absolute, $args...);
+	}
+
+	// Shorthand mixin for relative positioning
+	// Serves as an alias for `position(relative, ...)`
+	// @param {Arglist} $args - Offsets
+	// @require {mixin} position
+	@mixin relative($args...) {
+		@include position(relative, $args...);
+	}
+
+	// Shorthand mixin for fixed positioning
+	// Serves as an alias for `position(fixed, ...)`
+	// @param {Arglist} $args - Offsets
+	// @require {mixin} position
+	@mixin fixed($args...) {
+		@include position(fixed, $args...);
+	}
+
+// 	/*
+// 		========================================
+// 			:: Simple Asset Helper Functions
+// 		========================================
+// 	*/
+
+	// Base path for assets (fonts, images...),
+	// should not include trailing slash
+	// @access public
+	// @type String
+	$asset-base-path: './' !default;
+
+	// Asset URL builder
+	// @access private
+	// @param {String} $type - Asset type, matching folder name
+	// @param {String} $file - Asset file name, including extension
+	// @return {URL} - A `url()` function leading to the asset
+	@function asset($type, $file) {
+	  @return url($asset-base-path + '/' + $type + '/' + $file);
+	}
+
+	// Image asset helper
+	// @access public
+	// @param {String} $file - Asset file name, including extension
+	// @return {URL} - A `url()` function leading to the image
+	// @require {function} asset
+	@function image($file) {
+	  @return asset('images/', $file);
+	}
+
+	// Font asset helper
+	// @access public
+	// @param {String} $file - Asset file name, including extension
+	// @return {URL} - A `url()` function leading to the font
+	// @require {function} asset
+	@function font($file) {
+	  @return asset('fonts', $file);
+	}
+
+// 	/*
+// 		========================================
+// 			::BEM Mixins
+// 		========================================
+// 	*/
+
+	//Read More about BEM here: https://en.bem.info/method/		
+
+	// Block Element
+	// @access public
+	// @param {String} $element - Element's name
+	@mixin element($element) {
+	    &__#{$element} {
+	        @content;
+	    }
+	}
+
+	// Block Modifier
+	// @access public
+	// @param {String} $modifier - Modifier's name
+	@mixin modifier($modifier) {
+	    &--#{$modifier} {
+	        @content;
+	    }
+	}
+
+	// @alias element
+	@mixin e($element) {
+	    @include element($element) {
+	        @content;
+	    }
+	}
+
+	// @alias modifier
+	@mixin m($modifier) {
+	    @include modifier($modifier) {
+	        @content;
+	    }
+	}
+
+	// .block {
+	//     /* CSS declarations for `.block` */
+
+	//     @include e('element') {
+	//         /* CSS declarations for `.block__element` */
+	//     }
+
+	//     @include m('modifier') {
+	//         /* CSS declarations for `.block--modifier` */
+
+	//         @include e('element') {
+	//             /* CSS declarations for `.block--modifier__element` */
+	//         }
+	//     }
+	// }
+
+//	/*
+//		========================================
+//			::Simplify Events Mixin
+//		========================================
+//	*/
+
+	// Event wrapper
+	// @author Harry Roberts
+	// @param {Bool} $self (false) - Whether or not to include current selector
+	// @see https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+
+	@mixin on-event($self: false) {
+		@if $self {
+			&,
+			&:hover,
+			&:active,
+			&:focus {
+				@content;
+			}
+		} @else {
+			&:hover,
+			&:active,
+			&:focus {
+				@content;
+			}
+		}
+	}
+
+	// 	Example Usage:
+	// 		.example {
+	// 			text-decoration: none;
+	//
+	// 			@include on-event {
+	// 				text-decoration: underline;
+	// 			}
+	// 		}
+
+
+//	/*
+//		========================================
+//			::Ultimate Rem Mixin
+//		========================================
+//	*/
+
+	@function parse-int($n) {
+		@return $n / ($n * 0 + 1);
+	}
+
+	@mixin rem($property, $values) {
+		$px : ();
+		$rem: ();
+
+		@each $value in $values {
+
+			@if $value == 0 or $value == auto {
+				$px : append($px , $value);
+				$rem: append($rem, $value);
+			} @else {
+				$unit: unit($value);
+				$val: parse-int($value);
+
+				@if $unit == "px" {
+					$px : append($px,  $value);
+					$rem: append($rem, ($val / 10 + rem));
+				}
+
+				@if $unit == "rem" {
+					$px : append($px,  ($val * 10 + px));
+					$rem: append($rem, $value);
+				}
+			}
+	  	}
+
+		@if $px == $rem {
+			#{$property}: $px;
+		} @else {
+			#{$property}: $px;
+			#{$property}: $rem;
+	  	}
+	}	
+
+	// This mixin requires full buy in for rem units.
+	// Read more abour rem here: http://snook.ca/archives/html_and_css/font-size-with-rem
+	// Since Rems are relative to the html font-size it's important for this mixin that
+	// you set html font-size to 62.5%
+
+	// Example Usage: 
+	// SCSS
+
+	// html {
+	// 	font-size: 62.5%;
+	// }
+
+	// body {
+	// 	@include rem(font-size, 1.6rem);
+	// }
+
+	// .example {
+	// 	@include rem(font-size: 1.4rem);
+	// 	@include rem(padding, 2rem);
+	// }
+
+	// Result:
+	// html {
+	// 	font-size: 62.5%;
+	// }
+
+	// body {
+	// 	font-size: 16px;  /* IE 8 fallback */
+	// 	font-size: 1.6rem;
+	// }
+
+	// .example {
+	// 	font-size: 14px; /* IE 8 fallback */
+	// 	font-size: 1.4rem;
+	// 	padding: 20px; /* IE 8 fallback */
+	// 	padding: 2rem;
+	// }
+
+//	/*
+//		========================================
+//			::Sticky Header Mixin
+//		========================================
+//	*/
+
+	@mixin admin-sticky-fix( $offset: 0 ) {
+		$narrow-offset: 46px;
+		$wide-offset: 32px;
+		
+		@if $offset != 0 and type-of($offset) == 'number' {
+			$narrow-offset: $narrow-offset + $offset;
+			$wide-offset: $wide-offset + $offset;
+		}
+		
+		.admin-bar & {
+			top: $narrow-offset;
+			
+			@media screen and (min-width: 783px) {
+				top: $wide-offset;
+			}
+		}
+	}
+
+//	/*
+//		========================================
+//			::Margin Center
+//		========================================
+//	*/	
+
+	@mixin margin-center($extend: true) {
+		@if $extend {
+			@extend %margin-center;
+		} @else {
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+
+	%margin-center {
+		@include margin-center($extend: false);
+	}
+
+// 	/*
+// 		========================================
+// 			::Screen Reader Text
+// 		========================================
+// 	*/
+
+	@mixin screen-reader-text($extend: true) {
+		@if $extend {
+			@extend %screen-reader-text;
+		} @else {
+			position: absolute !important;
+			clip: rect(1px 1px 1px 1px);
+			clip: rect(1px, 1px, 1px, 1px);
+		}
+	}
+
+	%screen-reader-text {
+	  @include screen-reader-text($extend: false);
+	}	

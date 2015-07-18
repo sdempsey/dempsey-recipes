@@ -1,0 +1,147 @@
+@import "node_modules/susy/sass/susy";   	// Susy is great, get started here: http://susydocs.oddbird.net/en/latest/install/
+@import "helpers/mixins";        			// helpers/global/_mixins.scss
+@import "helpers/reset";	    			// helpers/_reset.scss
+// @import "icon-font/fontcustom"; 			//icon-font/_fontcustom.scss uncomment only if planning to use.
+
+//  /*
+//     ========================================
+//         ::Susy Layout - Example
+//     ========================================
+//  */
+
+//  This $susy map only needs to be included if you're planning to change the global defaults
+//  The following example is the layout used on ALPCO
+
+$susy: (
+	container: 1400px,
+	columns: 12,
+	gutters: .25,
+	clearfix: true
+);
+
+@include layout($susy);
+
+//  /*
+//     ========================================
+//         ::Colors
+//     ========================================
+//  */
+
+$white: #fff;
+$black: #2c313b;
+$white: #fff;
+$blue: #00aaec;
+
+
+$colors: (
+	body-bg: $white,
+	body-copy: $black,
+	selection-color: $white,
+	selection-bg: $blue,
+    a-color: $blue
+);
+
+@function color($key) {
+	@if map-has-key($colors, $key) {
+		@return map-get($colors, $key);
+	}
+
+	@warn "Unkown '#{$key}' in $colors.";
+	@return null;
+}
+
+
+//  /*
+//     ========================================
+//         ::Breakpoint Variables and Mixin
+//     ========================================
+//  */
+
+
+
+$small: em(600px);      // 37.5em  
+$medium: em(760px);     // 47.5em
+$large: em(1000px);     // 62.5em
+
+$breakpoints: (
+	small: $small,
+	medium: $medium,
+	large: $large,
+);
+
+@mixin respond-to($breakpoint) {
+	@if map-has-key($breakpoints, $breakpoint) {
+		@media screen and (min-width: #{map-get($breakpoints, $breakpoint)}) {
+			@content;
+		}
+	}
+	@else {
+		@warn "That variable doesn't exist in '#{$breakpoint}' dummy"
+		+ "Add it to '$breakpoints' map, or GTFO.";
+	}
+}
+
+//  /*
+//     ========================================
+//         ::Z Index Map and Function
+//     ========================================
+//  */
+
+$z-index: (
+	header: 1,
+	botomless-pit: -99999,
+	mount-everest: 99999
+);
+
+@function z($key) {
+	@if map-has-key($z-index, $key) {
+		@return map-get($z-index, $key);
+	}
+
+	@warn "Unkown '#{$key}' in $z-index.";
+	@return null;
+}
+
+
+//  /*
+//     ========================================
+//         ::Global Styles
+//     ========================================
+//  */
+
+::selection {
+	color: $white;
+	background: $blue;
+	text-shadow: none;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+body {
+	position: relative;
+	background: color(body-bg);
+	font-family: family(base);
+	font-weight: 300;
+	font-style: normal;
+	line-height: 1.25;
+}
+
+a {
+	color: color(a-color);
+}
+
+.group {
+	@include clearfix;
+}
+
+.screen-reader-text {
+	@include screen-reader-text;
+}

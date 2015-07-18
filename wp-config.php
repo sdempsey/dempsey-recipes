@@ -2,7 +2,7 @@
 /**
  * SET UP ENVIRONMENTS
  */
-if ($_SERVER["HTTP_HOST"] === 'example.gotdns.com') {
+if ($_SERVER["HTTP_HOST"] === 'local.recipes.dev') {
 
     define('WP_ENV', 'development');
 
@@ -26,9 +26,9 @@ if (WP_ENV === 'development') {
     define('WP_HOME', 'http://' . $_SERVER['SERVER_NAME']);
 
     // Database
-    define('DB_NAME', 'dev_db_name');
-    define('DB_USER', 'dev_db_user');
-    define('DB_PASSWORD', 'dev_db_password');
+    define('DB_NAME', 'wp_recipes');
+    define('DB_USER', 'sean');
+    define('DB_PASSWORD', 'optikorn1');
     define('DB_HOST', 'localhost');
 
     // Content Directory

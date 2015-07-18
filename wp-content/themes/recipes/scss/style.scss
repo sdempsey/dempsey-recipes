@@ -1,0 +1,90 @@
+/*
+    Theme Name:     Nucleus
+    Theme URI:      http://vtldesign.com
+    Description:    A blank WordPress theme
+    Version:        1.0
+    Author:         Vital
+    Author URI:     http://vtldesign.com
+*/
+
+/* --------------------------------------------------------------------------
+
+    TABLE OF CONTENTS
+
+    1. Reset & Global
+    2. Core Layout
+    3. Core Elements & Typography
+        3.1. Headings
+        3.2. Paragraph and Emphasis
+        3.3. Lists
+        3.4. Tables
+        3.5. Images
+        3.6. Captions
+        3.7. Galleries
+        3.8. Miscellaneous
+        3.9. Alignment
+        3.10. Gravity Forms
+    4. Header
+    5. Footer
+    6. Navigation
+        6.1. Main Navigation
+        6.2. Utility Navigation
+        6.3. Footer Navigation
+    7. UI Elements
+    8. Global Blocks
+    9. Home Page
+
+/*  ==========================================================================
+     1. RESET & GLOBAL
+    ==========================================================================  */
+
+@import "global/global";                    // global/_global.scss
+
+/*  ==========================================================================
+     2. CORE LAYOUT
+    ==========================================================================  */
+
+@import "global/layout/layout";             // global/layout/_layout.scss
+
+/*  ==========================================================================
+     3. CORE ELEMENTS & TYPOGRAPHY
+    ==========================================================================  */
+
+@import "global/wordpress/core-styles";     // global/wordpress/_core-styles.scss
+
+
+/*  ==========================================================================
+     4. HEADER
+    ==========================================================================  */
+
+@import "global/header/header";             // global/header/_header.scss
+
+/*  ==========================================================================
+     5. FOOTER
+    ==========================================================================  */
+
+@import "global/footer/footer";             // global/footer/_footer.scss
+
+/*  ==========================================================================
+     6. NAVIGATION
+    ==========================================================================  */
+
+@import "global/navigation/navigation";     // global/navigation/_navigation.scss
+
+/*  ==========================================================================
+     7. UI ELEMENTS
+    ==========================================================================  */
+
+@import "global/ui-elements/ui-elements";   // global/ui-elements/_ui-elements.scss
+
+/*  ==========================================================================
+     8. GLOBAL BLOCKS
+    ==========================================================================  */
+
+@import "global/blocks/blocks";             // global/_blocks.scss
+
+/*  ==========================================================================
+     9. HOME PAGE
+    ==========================================================================  */
+
+@import "templates/home";                   // templates/_home.scss
